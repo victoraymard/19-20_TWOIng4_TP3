@@ -1,39 +1,8 @@
 
-// Fonction appelée lors du click du bouton
-function start() {
-    // Création de l'objet apiWeather
-    const apiWeather = new API_WEATHER();
-    // Appel de la fonction fetchTodayForecast
-
-    apiWeather
-        .fetchTodayForecast()
-        .then(function(response) {
-            // Récupère la donnée d'une API
-            const data = response.data;
-
-            // On récupère l'information principal
-            const main = data.weather[0].main;
-            const description = data.weather[0].description;
-            const temp = data.main.temp;
-            const icon = apiWeather.getHTMLElementFromIcon(data.weather[0].icon);
-
-            // Modifier le DOM
-            document.getElementById('today-forecast-main').innerHTML = main;
-            document.getElementById('today-forecast-more-info').innerHTML = description;
-            document.getElementById('icon-weather-container').innerHTML = icon;
-            document.getElementById('today-forecast-temp').innerHTML = `${temp}°C`;
-
-        })
-        .catch(function(error) {
-            // Affiche une erreur
-            console.error(error);
-        });
-}
 
 
-
-// Fonction appelée lors du chargement de la page
-function start() {
+// Fonction appelée lors du chargement de la page pour charger la météo du jour
+/*function start() {
     // Création de l'objet apiWeather'
     const apiWeather = new API_WEATHER();
     // Appel de la fonction fetchTodayForecast
@@ -49,8 +18,6 @@ function start() {
             const description = data.weather[0].description;
             const temp = data.main.temp;
             const icon = apiWeather.getHTMLElementFromIcon(data.weather[0].icon);
-            console.log("salut bande de salopes");
-            console.log(main, description, temp);
 
             // Modifier le DOM
             document.getElementById('today-forecast-main').innerHTML = main;
@@ -63,10 +30,10 @@ function start() {
             // Affiche une erreur
             console.error(error);
         });
-}
+}*/
 
-// Fonction appelée lors du click sur actualiser
-function reload() {
+// Fonction appelée lors du click sur actualiser la météo du jour
+/*function reload() {
     //la ville
     const city = document.getElementById('city-input').value;
     // Création de l'objet apiWeather'
@@ -97,28 +64,26 @@ function reload() {
             // Affiche une erreur
             console.error(error);
         });
-}
+}*/
 
 
 // Fonction appelée lors du click du bouton actualiser
 function threedays() {
-    //la ville
-    console.log("salut salut");
-    const city = document.getElementById('city-input').value;
-    //const city = "paris";
+    // La ville étudiée
+    let city ="toulouse";
+    if (document.getElementById('city-input').value)
+        city=document.getElementById('city-input').value;
+    //si la ville n'a pas été attribuée, on garde toulouse
+
     // Création de l'objet apiWeather
     const apiWeather = new API_WEATHER(city);
     // Appel de la fonction fetchTodayForecast
-    console.log("wesh alors");
 
-    //TODO faire en sorte que l'on rentre dans apiWeather et que les logs soient affichés
     apiWeather
         .fetchThreeDaysForecast()
         .then(function(response) {
-            console.log("salut bande de gens sympas");
             // Récupère la donnée d'une API
             const data = response.data;
-            console.log("salut bande de gens sympas, le retour");
 
             // On récupère l'information principal j+0
             const main = data.list[0].weather[0].main;
@@ -145,8 +110,6 @@ function threedays() {
             const icon3 = apiWeather.getHTMLElementFromIcon(data.list[3].weather[0].icon);
 
 
-            console.log("salut bande de gens sympas, le prequel");
-            console.log(main1, description1);
 
             // Modifier le DOM
             //à j+0
@@ -181,21 +144,17 @@ function threedays() {
 }
 
 
-// Fonction appelée lors du click du bouton actualiser
-function startV2() {
-    // Création de l'objet apiWeather
+// Fonction appelée lors du chargement de la page
+/*function startV2() {
+     // Création de l'objet apiWeather
     const apiWeather = new API_WEATHER();
     // Appel de la fonction fetchTodayForecast
-    console.log("wesh alors");
 
-    //TODO faire en sorte que l'on rentre dans apiWeather et que les logs soient affichés
     apiWeather
         .fetchThreeDaysForecast()
         .then(function(response) {
-            console.log("salut bande de gens sympas");
             // Récupère la donnée d'une API
             const data = response.data;
-            console.log("salut bande de gens sympas, le retour");
 
             // On récupère l'information principal j+0
             const main = data.list[0].weather[0].main;
@@ -251,7 +210,7 @@ function startV2() {
             // Affiche une erreur
             console.error(error);
         });
-}
+}*/
 
 
 //fonction permettant de récupérer trois jours
