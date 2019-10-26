@@ -15,6 +15,8 @@ function getThreeDayForecast() {
         .then(function(response) {
             // Récupère la donnée d'une API
             const data = response.data;
+            // On récupère le nom de la ville
+            const name = data.city.name;
 
             // On récupère l'information principal j+0
             const main = data.list[0].weather[0].main;
@@ -43,6 +45,9 @@ function getThreeDayForecast() {
 
 
             // Modifier le DOM
+            //affichage du nom de la ville
+            document.getElementById('city-name').innerHTML = name;
+
             //à j+0
             document.getElementById('today-forecast-main').innerHTML = main;
             document.getElementById('today-forecast-more-info').innerHTML = description;
