@@ -16,6 +16,7 @@ class API_WEATHER{
       city = "paris";
     }
     this.city = city;
+    console.log("je suis dans l'api, youpi");
   }
 
   // Faire la requete à l'API openweathermap
@@ -36,7 +37,7 @@ class API_WEATHER{
 
   fetchThreeDaysForecast(){
     return axios
-        .get(`${API_URL_BIS}?q=${this.city}&units=metric&appid=${API_KEY}&cnt=3`, {
+        .get(`${API_URL_BIS}?q=${this.city}&units=metric&appid=${API_KEY}&cnt=4`, {
           crossdomain: true
         })
   }
